@@ -24,7 +24,7 @@ process bigwig {
   
   FACTOR=\$(samtools idxstats ${sampleId}.bam | cut -f3 | awk -v COUNT=\$2 'BEGIN {total=0} {total += \$1} END {print COUNT/total}')
 
-  if [[ $FACTOR > 1 ]]
+  if [[ \$FACTOR > 1 ]]
     then 
     echo '[ERROR]: Requested number of reads exceeds total read count in ${sampleId}.bam -- exiting' && exit 1
   fi
