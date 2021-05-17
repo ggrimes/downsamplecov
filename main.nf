@@ -26,7 +26,7 @@ process bigwig {
 
   if [[ $FACTOR > 1 ]]
     then 
-    echo '[ERROR]: Requested number of reads exceeds total read count in' $1 '-- exiting' && exit 1
+    echo '[ERROR]: Requested number of reads exceeds total read count in ${sampleId}.bam -- exiting' && exit 1
   fi
 
   sambamba view -s \$FACTOR -f bam -l 5 ${sampleId}.bam
