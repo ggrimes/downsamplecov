@@ -2,6 +2,15 @@ params.bam = 'alignment/*.{bam,bai}'
 params.reads=10000000
 params.binsize=10
 
+log.info """\
+         R N A S E Q - N F   P I P E L I N E
+         ===================================
+         bam:         : ${params.bam}
+         reads:       : ${params.reads}
+         binsize      : ${params.binsize}
+         """
+         .stripIndent()
+
 Channel
     .fromFilePairs(params.bam ) { file -> file.name.replaceAll(/.bam|.bai$/,'') }
     .set { samples_ch }
