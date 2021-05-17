@@ -35,7 +35,7 @@ process bigwig {
 
  ## Usage example, selecting 100.000 reads:
  SubSample ${sampleId}.bam 100000 > subsampled.${sampleId}.bam
- bamCoverage --bam subsampled.${sampleId}.bam -o ${sample_id}.bw --binSize ${params.binsize}
+ bamCoverage --bam subsampled.${sampleId}.bam -o ${sampleId}.bw --binSize ${params.binsize}
  """
 
 
