@@ -16,7 +16,7 @@ process bigwig {
   output:
   path "*.bw" into bw_out
 
-  script
+  script:
   """
   function SubSample {
   samtools index ${sampleId}.bam
