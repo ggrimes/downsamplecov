@@ -1,6 +1,6 @@
 params.bam = 'alignment/*.{bam,bai}'
-params.reads=20000
-params.binsize=1000
+params.reads=10000000
+params.binsize=10
 
 Channel
     .fromFilePairs(params.bam ) { file -> file.name.replaceAll(/.bam|.bai$/,'') }
