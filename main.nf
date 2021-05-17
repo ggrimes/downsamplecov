@@ -12,10 +12,11 @@ log.info """\
          .stripIndent()
 
 Channel
-    .fromFilePairs(params.bam ) { file -> file.name.replaceAll(/.bam|.bai$/,'') }
+    .fromFilePairs(params.bam, checkIfExists: true ) { file -> file.name.replaceAll(/.bam|.bai$/,'') }
     .set { samples_ch }
 
 process bigwig {
+  tag "${sampleID}"
   publishDir "results", mode:"copy"
   echo true
   
